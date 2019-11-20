@@ -5,7 +5,10 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
-app.use
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use(express.static('uploads'));
 
 const catRoute = require('./routes/catRoute');
 const userRoute = require('./routes/userRoute');

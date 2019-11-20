@@ -7,9 +7,7 @@ const catController = require('../controllers/catController');
 
 router.get('/', catController.cat_list_get);
 
-router.get('/:id', (req, res) => {
-    res.send('You reqested a cat whose id is ' + req.params.id);
-});
+router.get('/:id', catController.cat_get);
 
 router.post('/', upload.single('cat'), catController.cat_create_post);
 
