@@ -11,12 +11,14 @@ router.get('/:id', catController.cat_get);
 
 router.post('/', upload.single('cat'), catController.cat_create_post);
 
-router.put('/', (req, res) => {
-    res.send('With this endpoint you can modify cats.');
+router.put('/', async(req, res) => {
+    await catController.cat_modify_cat(req.body);
+    res.send("Update received!");
 });
 
-router.delete('/', (req, res) => {
-    res.send('With this endpoint you can delete cats.');
-});
+router.delete('/:id', async (req, res) => {
 
+    await catController.cat_delete_cat(req.params.id);
+    res.send("Cat deleted!");
+});
 module.exports = router;
