@@ -7,7 +7,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use('/thumbnails', express.static('thumbnails'));
 app.use(express.static('uploads'));
 
 const catRoute = require('./routes/catRoute');
