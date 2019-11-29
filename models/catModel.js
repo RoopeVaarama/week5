@@ -51,7 +51,7 @@ const deleteCat = async (id) => {
 
 const modifyCat = async(name, age, weight, owner, id) => {
   try{
-    await promisePool.execure(
+    await promisePool.execute(
         `UPDATE wop_cat
         SET
         name = ?,
